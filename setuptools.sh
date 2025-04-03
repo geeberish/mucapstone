@@ -100,6 +100,15 @@ cd ..
 # Install Netcat
 sudo apt install -y netcat-openbsd
 
+# Install AI Tool
+sudo git clone https://github.com/geeberish/mucapstone.git
+cd mucapstone
+cd ai_hack_tool
+chmod +x install.sh
+sudo ./install.sh
+cd ..
+cd ..
+
 sudo apt update && sudo apt upgrade -y
 
 echo "All commands executed successfully!"
