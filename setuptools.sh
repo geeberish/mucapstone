@@ -104,9 +104,12 @@ sudo apt install -y netcat-openbsd
 sudo git clone https://github.com/geeberish/mucapstone.git
 cd mucapstone
 cd ai_hack_tool
-chmod +x install.sh
+chmod +x ./install.sh
+chmod +x ./pull_manpages.sh
 sudo ./install.sh
+sudo ./pull_manpages.sh 
 cd ..
+sudo wyrmai --process
 cd ..
 sudo ollama pull qwen2.5-coder:1.5b
 
