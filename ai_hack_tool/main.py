@@ -30,7 +30,10 @@ def chunk_text(text, chunk_size=100):
 def process_man_pages(directory="manpages"):
     """Extracts and stores man pages in ChromaDB."""
     for file in os.listdir(directory):
-        with open(os.path.join(directory, file), "r") as f:
+        full_path = os.path.join(directory, file)
+        if os.path.isdir(full_path):
+            continue  # Skip directories like chroma_db
+        with open(full_path, "r") as f:
             text = f.read()
         chunks = chunk_text(text)
         for i, chunk in enumerate(chunks):
