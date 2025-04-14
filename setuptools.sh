@@ -108,6 +108,7 @@ chmod +x install.sh
 sudo ./install.sh
 cd ..
 cd ..
+sudo ollama pull qwen2.5-coder:1.5b
 
 sudo apt update && sudo apt upgrade -y
 
