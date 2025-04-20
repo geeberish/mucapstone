@@ -100,6 +100,9 @@ cd ..
 # Install Netcat
 sudo apt install -y netcat-openbsd
 
+# Install Bluetooth tools
+sudo apt install -y bluetooth
+
 # Install AI Tool
 sudo git clone https://github.com/geeberish/mucapstone.git
 cd mucapstone
