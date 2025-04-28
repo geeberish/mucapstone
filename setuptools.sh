@@ -102,6 +102,7 @@ sudo apt install -y netcat-openbsd
 
 # Install Bluetooth tools
 sudo apt install -y bluetooth
+sudo apt install core-utils bluetooth getty
 
 # Install AI Tool
 sudo git clone https://github.com/geeberish/mucapstone.git
