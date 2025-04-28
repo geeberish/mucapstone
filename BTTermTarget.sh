@@ -33,7 +33,6 @@ sudo apt update
 # sudo apt upgrade -y
 
 ## INSTALL BLUETOOTH PACKAGE IN ORDER TO GET DEFAULT SERVICE FILE
-sudo apt install core-utils bluetooth getty
 
 ## DISABLE DEFAULT BLUETOOTH SERVICE
 sudo systemctl stop bluetooth
