@@ -106,7 +106,6 @@ sudo apt install core-utils bluetooth getty
 sudo apt install core-utils bluetooth screen
 
 # Install AI Tool
-sudo git clone https://github.com/geeberish/mucapstone.git
 cd mucapstone
 cd ai_hack_tool
 chmod +x ./install.sh
