@@ -8,7 +8,7 @@
 
 ## Overview
 
-This repository contains scripts and setup tools for the **Offline AI Reconnaissance and Hacking Tool**. The project enables secure, offline terminal sessions between two Linux devices over Bluetooth and automates the installation of a suite of security, reconnaissance, and AI tools.
+This repository contains scripts and setup tools for the **Offline AI Reconnaissance and Hacking Tool**. The project enables secure, offline terminal sessions between two Linux devices(Laptop and Raspberri Pi using our custom Wrym ISO) over Bluetooth and automates the installation of a suite of security, reconnaissance, and AI tools.
 
 ---
 
@@ -17,7 +17,7 @@ This repository contains scripts and setup tools for the **Offline AI Reconnaiss
 ### `BTTermClient.sh`
 
 - **Purpose:**  
-  Run on the client device (e.g., laptop/tablet) to initiate a Bluetooth serial terminal connection to a remote target.
+  Run on the client device (e.g., laptop/tablet) to initiate a Bluetooth serial terminal connection to a remote target (we used a Raspberry Pi 5 with our custom ISO).
 - **What it does:**  
   - Binds the Bluetooth serial port to the target device's MAC address.
   - Launches a terminal session (`screen`) over the Bluetooth connection.
