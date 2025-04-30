@@ -57,6 +57,8 @@ echo 'deb [signed-by=/usr/share/keyrings/kismet-archive-keyring.gpg] https://www
 sudo apt update
 sudo apt install -y kismet
 
+sudo apt install sl
+
 # Install John the Ripper
 sudo apt-get install -y john
 
