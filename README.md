@@ -104,21 +104,24 @@ This repository contains scripts and setup tools for the **Offline AI Reconnaiss
 ## Usage
 
 1. **Set up the environment:**  
+   Install Ubuntu ISO file on Virtual Machine software or Raspberry Pi, pull `mucapstone ` with git.
+   
+2. **Set up the environment:**  
    Run `setuptools.sh` on both client and target devices to install all dependencies and tools.
 
-2. **Install and configure the AI assistant:**  
+3. **Install and configure the AI assistant:**  
    Navigate to the AI tool directory and run `install.sh` with `sudo`.
 
-3. **Extract documentation:**  
+4. **Extract documentation:**  
    Run `pull_manpages.sh` to populate the `manpages` directory with tool documentation.
 
-4. **Configure the target device:**  
+5. **Configure the target device:**  
    Run `BTTermTarget.sh` with `sudo` privileges.
 
-5. **Connect from the client device:**  
+6. **Connect from the client device:**  
    Run `BTTermClient.sh` with `sudo` privileges.
 
-6. **Use the AI assistant:**  
+7. **Use the AI assistant:**  
    Use the `wyrmai` command to interact with the offline AI hacking tool.
 
 ---
