@@ -1,8 +1,8 @@
-# Offline AI Reconnaissance and Hacking Tool
+# Offline AI Assisted Reconnaissance and Hacking Tool over Bluetooth
 
 **IT 489 Capstone Project**  
 **Team Members:** Richard Flores, Natasha Menon, Matt Penn  
-**Submission Date:** May 1, 2025
+
 
 ---
 
