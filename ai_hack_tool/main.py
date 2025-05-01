@@ -45,7 +45,7 @@ def retrieve_man_page(query, top_k=3):
     """Retrieves relevant sections from stored man pages."""
     query_embedding = model.encode([query]).tolist()
     results = collection.query(query_embeddings=query_embedding, n_results=top_k)
-    print(results)
+    #print(results)
     context_docs = results["documents"]
     
     # Flatten the list if it contains nested lists
