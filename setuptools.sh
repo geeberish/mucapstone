@@ -1,5 +1,26 @@
 #!/bin/bash
 
+# =========================================== WyrmTools ========================================== #
+#
+# Script Name:  setuptools.sh
+# Description:  Initial setup, configuration, and installation of tools on Raspberry Pi.
+# Author:       Natasha "geeberish" Menon
+# Created:      ...
+# Modified:     2025-05-02
+# Version:      dev-2025-05-02
+# Usage:        sudo ./setuptools.sh
+# Dependencies: software-properties-common, net-tools, git, nano, vim, golang, autotools-dev, 
+#               build-essential, libpcap-dev, pipx, python3-pip, libtool, shtool, pkg-config, 
+#               wget, ethtool, rfkill, libssl-dev, libgcrypt20-dev, libnl-3-dev, 
+#               libnl-genl-3-dev, mono-complete
+# Tested on:    Debian 12.10, BlueZ 5.66, Bash 5.2.15-2+b7
+# License:      Custom Academic License – for academic, non-commercial use only. See LICENSE.
+# Notes:        Developed while attending Marymount University, CAE-CD, Arlington, VA, for the
+#               class IT 489 Capstone Project. Project title: Offline AI Reconnaissance and
+#               Hacking Tool. Team Members: Richard Flores, Natasha Menon, and Charles "Matt" Penn.
+#
+# =============================================================================================== #
+
 # Update and upgrade the system
 sudo apt update && sudo apt upgrade -y
 
@@ -118,6 +139,11 @@ sudo wyrmai --process
 cd ..
 cd ..
 sudo ollama pull qwen2.5-coder:1.5b
+
+# Run WyrmTermTarget.sh to create Bluetooth login listener service
+cd ../wyrmterm
+chmod +x WyrmTermTarget.sh
+./WyrmTermTarget.sh
 
 sudo apt update && sudo apt upgrade -y
 
