@@ -1,30 +1,14 @@
 import os
 import argparse
-import chromadb
 import logging
-from sentence_transformers import SentenceTransformer
-import ollama
 
 # Setup logging (save log in user's home directory)
 log_path = os.path.expanduser("~/ai_hack.log")
 logging.basicConfig(filename=log_path, level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
 
+
 def log_message(message):
     logging.info(message)
-
-# Initialize ChromaDB and SentenceTransformer
-try:
-    chroma_client = chromadb.PersistentClient(path="./chroma_db")
-    collection = chroma_client.get_or_create_collection(name="man_pages")
-except Exception as e:
-    print(f"[ERROR] Failed to initialize ChromaDB: {e}")
-    exit(1)
-
-try:
-    model = SentenceTransformer("all-MiniLM-L6-v2")
-except Exception as e:
-    print(f"[ERROR] Failed to load SentenceTransformer model: {e}")
-    exit(1)
 
 # Session history file
 SESSION_FILE = "session_history.txt"
@@ -35,17 +19,26 @@ def save_session(query, response):
 
 def chunk_text(text, chunk_size=100):
     words = text.split()
-    return [" ".join(words[i:i+chunk_size]) for i in range(0, len(words), chunk_size)]
+    return [" ".join(words[i:i + chunk_size]) for i in range(0, len(words), chunk_size)]
 
-def process_man_pages(directory=None):
+def get_chroma_collection():
+    import chromadb
+    chroma_client = chromadb.PersistentClient(path="./chroma_db")
+    return chroma_client.get_or_create_collection(name="man_pages")
+
+def get_sentence_model():
+    from sentence_transformers import SentenceTransformer
+    return SentenceTransformer("all-MiniLM-L6-v2")
+
+def process_man_pages(directory="manpages"):
     """Extracts and stores man pages in ChromaDB."""
-    if directory is None:
-        # Get directory where this script is installed
-        script_dir = os.path.dirname(os.path.abspath(__file__))
-        directory = os.path.join(script_dir, "manpages")
+    collection = get_chroma_collection()
+    model = get_sentence_model()
 
+    directory = os.path.abspath(directory)  # Make sure it's an absolute path
     if not os.path.exists(directory):
-        print(f"[ERROR] Manpages directory not found: {directory}")
+        log_message(f"[ERROR] Directory '{directory}' does not exist.")
+        print(f"Error: Directory '{directory}' does not exist.")
         return
 
     for file in os.listdir(directory):
@@ -59,10 +52,13 @@ def process_man_pages(directory=None):
             embedding = model.encode([chunk]).tolist()
             collection.add(ids=[f"{file}_{i}"], documents=[chunk], embeddings=embedding)
     log_message("[+] Man pages successfully processed and stored.")
-
+    print("[+] Man pages successfully processed and stored.")
 
 def retrieve_man_page(query, top_k=3):
     """Retrieves relevant sections from stored man pages."""
+    collection = get_chroma_collection()
+    model = get_sentence_model()
+
     query_embedding = model.encode([query]).tolist()
     results = collection.query(query_embeddings=query_embedding, n_results=top_k)
     context_docs = results["documents"]
@@ -70,15 +66,16 @@ def retrieve_man_page(query, top_k=3):
     # Flatten the list if it contains nested lists
     if context_docs:
         flat_context_docs = [item for sublist in context_docs for item in (sublist if isinstance(sublist, list) else [sublist])]
-        return "\n".join(flat_context_docs)
+        return "\n".join(flat_context_docs)  # Join the top_k results as context
     else:
         log_message(f"[WARNING] No relevant documents found for query: {query}")
         return "No relevant context found. Please try rephrasing your query."
 
 def generate_command_suggestion(query):
     """Generates a command suggestion using Ollama and retrieved man pages."""
+    import ollama  # Also defer this until needed
     context_docs = retrieve_man_page(query)
-    context = context_docs  # already a string now
+    context = context_docs
 
     prompt = f"""
     You are an AI hacking assistant with access to Linux manual pages.
@@ -91,14 +88,9 @@ def generate_command_suggestion(query):
     User Query: {query}
     Provide a valid command based on the retrieved manual information, context, and what you know.
     """
-    try:
-        response = ollama.chat(model="qwen2.5-coder:1.5b", messages=[{"role": "user", "content": prompt}])
-        command_response = response['message']['content']
-    except Exception as e:
-        command_response = f"[ERROR] Failed to get response from Ollama: {e}"
-        log_message(command_response)
-        return command_response
 
+    response = ollama.chat(model="qwen2.5-coder:1.5b", messages=[{"role": "user", "content": prompt}])
+    command_response = response['message']['content']
     log_message(f"User Query: {query}\nAI Response: {command_response}")
     save_session(query, command_response)
     return command_response
