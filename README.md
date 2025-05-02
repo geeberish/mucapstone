@@ -14,7 +14,7 @@ This repository contains scripts and setup tools for the **Offline AI Reconnaiss
 
 ## File Explanations
 
-### `BTTermClient.sh`
+### `WyrmTermClient.sh`
 
 - **Purpose:**  
   Run on the client device (e.g., laptop/tablet) to initiate a Bluetooth serial terminal connection to a remote target (we used a Raspberry Pi 5 with our custom ISO).
@@ -27,7 +27,7 @@ This repository contains scripts and setup tools for the **Offline AI Reconnaiss
 
 ---
 
-### `BTTermTarget.sh`
+### `WyrmTermTarget.sh`
 
 - **Purpose:**  
   Run on the target device to accept Bluetooth serial terminal connections from a client.
