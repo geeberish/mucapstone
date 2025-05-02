@@ -1,9 +1,34 @@
+# =========================================== WyrmAI ========================================== #
+#
+# Script Name:  main.py
+# Description:  This script is on offline LLM powered hacking assistant that suggests linux
+#               based on user queries and stored manual pages from all installed tools. It 
+#               Leverages ChromaDB to store and retrieve relevant man pages sections and
+#               utilizes an Ollama model to generate accurate command suggestions. The tool,
+#               wyrmai, supports processing man pages, answering single queries, interactive chat
+#               sessions and viewing session history.
+# Author:       Matt Penn
+# Created:      2025-04-17
+# Modified:     2025-05-02
+# Version:      dev-2025-05-02
+# Usage:        wyrmai --help
+# Dependencies: chromadb, sentence-transformers, ollama (all in requirements.txt file)
+# Tested on:    Raspberry Pi 5, Ubuntu Server 25.04
+# License:      Custom Academic License – for academic, non-commercial use only. See LICENSE.
+# Notes:        Developed while attending Marymount University, CAE-CD, Arlington, VA, for the
+#               class IT 489 Capstone Project. Project title: Offline AI Reconnaissance and
+#               Hacking Tool. Team Members: Richard Flores, Natasha Menon, and Charles "Matt" Penn.
+#
+# =============================================================================================== #
+
+
+
 import os
 import argparse
 import logging
 
 # Setup logging (save log in user's home directory)
-log_path = os.path.expanduser("~/ai_hack.log")
+log_path = os.path.expanduser("~/wyrmai.log")
 logging.basicConfig(filename=log_path, level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
 
 
