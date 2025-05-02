@@ -130,7 +130,7 @@ sudo apt install core-utils bluetooth screen
 
 # Install AI Tool
 cd mucapstone
-cd ai_hack_tool
+cd WyrmAITool
 chmod +x ./install.sh
 chmod +x ./pull_manpages.sh
 sudo ./install.sh
