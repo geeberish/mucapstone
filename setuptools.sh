@@ -114,8 +114,8 @@ chmod +x ./install.sh
 chmod +x ./pull_manpages.sh
 sudo ./install.sh
 sudo ./pull_manpages.sh 
-cd ..
 sudo wyrmai --process
+cd ..
 cd ..
 sudo ollama pull qwen2.5-coder:1.5b
 
