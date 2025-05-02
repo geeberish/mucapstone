@@ -5,8 +5,10 @@ import logging
 from sentence_transformers import SentenceTransformer
 import ollama
 
-# Setup logging
-logging.basicConfig(filename="ai_hack.log", level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
+# Setup logging (save log in user's home directory)
+log_path = os.path.expanduser("~/ai_hack.log")
+logging.basicConfig(filename=log_path, level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
+
 
 def log_message(message):
     logging.info(message)
