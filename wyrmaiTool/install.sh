@@ -1,4 +1,32 @@
 #!/bin/bash
+
+# =========================================== WyrmAI ========================================== #
+#
+# Script Name:  install.sh
+# Description:  This script automates the installation of our wyrmai tool and makes it usable
+#               system wide. It installs Ollama if not already installed and sets up the required
+#               python and system dependencies needed. Once set up the tool's files are copied
+#               to /opt/wyrmai where a python venv is set up and installs needed packages. 
+#               Finally it creates the global wyrmai command so this tool can be utilized
+#               anywhere.
+# Author:       Matt Penn
+# Created:      2025-04-17
+# Modified:     2025-05-02
+# Version:      dev-2025-05-02
+# Usage:        wyrmai --help
+# Dependencies: chromadb, sentence-transformers, ollama (all in requirements.txt file), python3
+#               python3-venv, python3-pip, Ollama
+# Tested on:    Raspberry Pi 5, Ubuntu Server 25.04
+# License:      Custom Academic License – for academic, non-commercial use only. See LICENSE.
+# Notes:        Developed while attending Marymount University, CAE-CD, Arlington, VA, for the
+#               class IT 489 Capstone Project. Project title: Offline AI Reconnaissance and
+#               Hacking Tool. Team Members: Richard Flores, Natasha Menon, and Charles "Matt" Penn.
+#
+# =============================================================================================== #
+
+
+
+
 # Define install location
 INSTALL_DIR="/opt/wyrmai"
 VENV_DIR="$INSTALL_DIR/venv"
