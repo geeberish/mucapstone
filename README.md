@@ -116,10 +116,10 @@ This repository contains scripts and setup tools for the **Offline AI Reconnaiss
    Run `pull_manpages.sh` to populate the `manpages` directory with tool documentation.
 
 5. **Configure the target device:**  
-   Run `BTTermTarget.sh` with `sudo` privileges.
+   Run `WyrmTermTarget.sh` with `sudo` privileges.
 
 6. **Connect from the client device:**  
-   Run `BTTermClient.sh` with `sudo` privileges.
+   Run `WyrmTermClient.sh` with `sudo` privileges.
 
 7. **Use the AI assistant:**  
    Use the `wyrmai` command to interact with the offline AI hacking tool.
