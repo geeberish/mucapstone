@@ -1,5 +1,27 @@
 #!/bin/bash
 
+# =========================================== WyrmAI ========================================== #
+#
+# Script Name:  pull_manpages.sh
+# Description:  This bash script automates the extraction of man pages, or if no man page is 
+#               available then the help output for a list of our chosen tools. After it checks
+#               for a man page or help output, it saves the output of each tool into individual
+#               text files in the manpages directory.
+# Author:       Matt Penn
+# Created:      2025-04-17
+# Modified:     2025-05-02
+# Version:      dev-2025-05-02
+# Usage:        ./pull_manpages.sh
+# Dependencies: N/A
+# Tested on:    Raspberry Pi 5, Ubuntu Server 25.04
+# License:      Custom Academic License – for academic, non-commercial use only. See LICENSE.
+# Notes:        Developed while attending Marymount University, CAE-CD, Arlington, VA, for the
+#               class IT 489 Capstone Project. Project title: Offline AI Reconnaissance and
+#               Hacking Tool. Team Members: Richard Flores, Natasha Menon, and Charles "Matt" Penn.
+#
+# =============================================================================================== #
+
+
 mkdir -p manpages
 
 # Function to get man/help output
