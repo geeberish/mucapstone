@@ -140,7 +140,7 @@ cd ..
 sudo ollama pull qwen2.5-coder:1.5b
 
 # Run WyrmTermTarget.sh to create Bluetooth login listener service
-cd /wyrmterm
+cd wyrmterm
 chmod +x WyrmTermTarget.sh
 ./WyrmTermTarget.sh
 
