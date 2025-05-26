@@ -23,7 +23,7 @@ This repository contains scripts and setup tools for the **Offline AI Reconnaiss
   - Launches a terminal session (`screen`) over the Bluetooth connection.
   - Requires elevated privileges (`sudo`).
 - **Known Issue:**  
-  - On connection, some "AT" commands may appear at the login prompt due to modem emulation. Wait for these to finish before logging in.[1]
+  - On connection, some "AT" commands may appear at the login prompt due to modem emulation. Wait for these to finish before logging in. [RESOLVED]
 
 ---
 
@@ -36,7 +36,7 @@ This repository contains scripts and setup tools for the **Offline AI Reconnaiss
   - Sets up and enables a systemd service (`btlogin`) to provide Getty-authenticated terminal logins over Bluetooth.
   - Requires elevated privileges (`sudo`).
 - **Known Issue:**  
-  - Similar to the client, "AT" commands may appear at the login prompt due to modem emulation. Wait for these before logging in.[3]
+  - Similar to the client, "AT" commands may appear at the login prompt due to modem emulation. Wait for these before logging in. [RESOLVED]
 
 ---
 
