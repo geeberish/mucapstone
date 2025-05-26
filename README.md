@@ -128,7 +128,7 @@ This repository contains scripts and setup tools for the **Offline AI Reconnaiss
 
 ## Known Issues
 
-- Both terminal scripts may display a series of "AT" commands at the login prompt due to the way the Bluetooth connection is handled (modem vs. serial). Wait for these to finish before logging in.
+- [THIS ISSUE WAS RESOLVED for our hardware, but left as a known issue until addtional hardware is tested] Both terminal scripts may display a series of "AT" commands at the login prompt due to the way the Bluetooth connection is handled (modem vs. serial). Wait for these to finish before logging in.
 - We need to fix the process_man_pages.py file to correctly check for the manpages directory to set up Retrieval Augmented Generation using ChromaDB.
 
 ---
