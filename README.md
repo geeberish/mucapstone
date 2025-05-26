@@ -32,7 +32,7 @@ This repository contains scripts and setup tools for the **Offline AI Reconnaiss
 - **Purpose:**  
   Run on the target device to accept Bluetooth serial terminal connections from a client.
 - **What it does:**  
-  - Customizes the Bluetooth service to advertise a virtual serial port (channel 22).
+  - Customizes the Bluetooth service to advertise a virtual serial port (channel 30, or other as defined in script).
   - Sets up and enables a systemd service (`btlogin`) to provide Getty-authenticated terminal logins over Bluetooth.
   - Requires elevated privileges (`sudo`).
 - **Known Issue:**  
